@@ -1,14 +1,14 @@
 import React from 'react';
 
-import './AuthLayout.css';
+import './PageLayout.css';
 
 import BaseLayout from './BaseLayout';
 
-class AuthLayout extends React.Component {
+class PageLayout extends React.Component {
     render() {
         return (
             <BaseLayout>
-                <div className="auth-inner">
+                <div className="wrapper-inner">
                     {this.props.children}
                 </div>
             </BaseLayout>
@@ -16,4 +16,4 @@ class AuthLayout extends React.Component {
     }
 }
 
-export default AuthLayout;
+export default PageLayout;

@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import routes from './routes';
-import BaseLayout from './layouts/BaseLayout';
 
 import GlobalRedirect from './GlobalRedirect';
 
