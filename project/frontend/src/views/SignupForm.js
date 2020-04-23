@@ -54,7 +54,7 @@ class SignupForm extends React.Component{
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     isValid={touched.username && !errors.username}
-                                    isInvalid={!!errors.username}
+                                    isInvalid={touched.username && !!errors.username}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.username}
@@ -70,7 +70,7 @@ class SignupForm extends React.Component{
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     isValid={touched.password && !errors.password}
-                                    isInvalid={!!errors.password}
+                                    isInvalid={touched.password && !!errors.password}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.password}
@@ -86,7 +86,7 @@ class SignupForm extends React.Component{
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     isValid={touched.passwordConfirmation && !errors.passwordConfirmation}
-                                    isInvalid={!!errors.passwordConfirmation}
+                                    isInvalid={touched.passwordConfirmation && !!errors.passwordConfirmation}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.passwordConfirmation}

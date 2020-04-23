@@ -5,6 +5,7 @@ import LoginForm from "./views/LoginForm";
 import SignupForm from "./views/SignupForm";
 import LogoutPage from "./views/LogoutPage";
 import ListsView from "./views/ListsView";
+import ListAddForm from "./views/ListAddForm";
 
 // Layouts
 import AuthLayout from "./layouts/AuthLayout";
@@ -40,6 +41,12 @@ export default [
         exact: true,
         layout: PageLayout,
         component: ListsView
+    },
+    {
+        path: "/lists/create",
+        exact: true,
+        layout: PageLayout,
+        component: ListAddForm
     },
     {
         path: "/example",

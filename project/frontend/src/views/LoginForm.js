@@ -21,7 +21,7 @@ class LoginForm extends Reflux.Component{
         this.store = LoggedUserStore;
     }
 
-    testFunction = (user) => {
+    handleCompletion = (user) => {
         LoggedUserActions.login(user);
     }
 
@@ -32,7 +32,7 @@ class LoginForm extends Reflux.Component{
                 <hr/>
                 <Formik
                     validationSchema={schema}
-                    onSubmit={this.testFunction}
+                    onSubmit={this.handleCompletion}
                     initialValues={{
                         username: '',
                         password: '',
@@ -58,7 +58,7 @@ class LoginForm extends Reflux.Component{
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     isValid={touched.username && !errors.username}
-                                    isInvalid={!!errors.username}
+                                    isInvalid={touched.username && !!errors.username}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.username}
@@ -74,7 +74,7 @@ class LoginForm extends Reflux.Component{
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     isValid={touched.password && !errors.password}
-                                    isInvalid={!!errors.password}
+                                    isInvalid={touched.password && !!errors.password}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.password}
