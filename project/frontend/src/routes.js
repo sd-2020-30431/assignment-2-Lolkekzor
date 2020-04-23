@@ -7,7 +7,6 @@ import LogoutPage from "./views/LogoutPage";
 import ListsView from "./views/ListsView";
 
 // Layouts
-import BaseLayout from "./layouts/BaseLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import PageLayout from "./layouts/PageLayout";
 

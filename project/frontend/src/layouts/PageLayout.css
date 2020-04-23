@@ -1,4 +1,5 @@
 .wrapper-inner {
+  justify-content: flex-start;
   width: 90%;
   margin: auto;
   background: #ffffff;

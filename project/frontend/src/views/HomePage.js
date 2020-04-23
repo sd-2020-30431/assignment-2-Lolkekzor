@@ -17,7 +17,7 @@ class HomePage extends Reflux.Component{
 
         return(
             <Card className="text-center">
-                <Card.Header>Home Page</Card.Header>
+                <Card.Header><h1>Home Page</h1></Card.Header>
                 <Card.Body>
                     <Card.Title>Welcome, {this.state.username || "Guest"}!</Card.Title> 
                     <Card.Text>
