@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
+import Alerts from '../reflux/actions/GlobalAlert';
+
 const schema = yup.object({
     itemTitle: yup.string().required(),
     itemQuantity: yup.number().required().positive(),
@@ -44,6 +46,8 @@ class ListAddForm extends React.Component {
                     items: res[1]
                 }
             ))
+        }).catch(err => {
+           Alerts.add("Something went wrong fetching the data.", "danger");
         })
     }
 
@@ -62,6 +66,8 @@ class ListAddForm extends React.Component {
             }
         }).then(res => {
             this.fetchItems();
+        }).catch(err => {
+            Alerts.add("Sorry, something went wrong.", "danger");
         })
     }
 

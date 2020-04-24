@@ -6,6 +6,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 import GlobalRedirectActions from '../reflux/actions/GlobalRedirect';
+import Alerts from '../reflux/actions/GlobalAlert';
 
 const schema = yup.object({
     listTitle: yup.string().required(),
@@ -21,8 +22,10 @@ class ListAddForm extends React.Component {
                 Authorization: `JWT ${localStorage.getItem('token')}`
             }
         }).then(res => {
-            console.log(res);
-            GlobalRedirectActions.redirect('/lists')
+            Alerts.add("List successfully added.", "success");
+            GlobalRedirectActions.redirect('/lists');
+        }).catch(err => {
+            Alerts.add("Sorry, something went wrong. Please try again.", "danger");
         })
     }
 

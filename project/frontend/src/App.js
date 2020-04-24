@@ -8,7 +8,8 @@ import {
 
 import routes from './routes';
 
-import GlobalRedirect from './GlobalRedirect';
+import GlobalRedirect from './components/GlobalRedirect';
+import GlobalAlert from './components/GlobalAlert';
 
 class App extends React.Component {
     render() {
@@ -31,6 +32,7 @@ class App extends React.Component {
                         );
                     })}
                 </Switch>
+                <GlobalAlert />
             </Router>
         );
     }

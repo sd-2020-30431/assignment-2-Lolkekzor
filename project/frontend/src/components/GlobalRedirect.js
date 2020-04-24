@@ -1,6 +1,6 @@
 import React from 'react';
 import Reflux from 'reflux';
-import GlobalRedirectStore from './reflux/stores/GlobalRedirect';
+import GlobalRedirectStore from '../reflux/stores/GlobalRedirect';
 import { Redirect } from 'react-router';
 
 class GlobalRedirect extends Reflux.Component {
