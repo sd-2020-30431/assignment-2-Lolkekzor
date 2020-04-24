@@ -90,15 +90,23 @@ class ListAddForm extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.items.map((item, idx) => {
+                            let purchase_date = moment(item.purchase_date).format('MMMM Do YYYY, hh:mm:ss');
+                            let expiration_date = moment(item.expiration_date).format('MMMM Do YYYY, hh:mm:ss');
+                            let consumption_date = moment(item.consumption_date).format('MMMM Do YYYY, hh:mm:ss')
+
+                            let donation_moment = moment(item.expiration_date).subtract(1, 'days');
+                            if (moment().isAfter(donation_moment)) {
+                                Alerts.add("You have items that are expiring or expired. Please consider donating them :)", "warning");
+                            }
                             return(
                                 <tr key={idx}>
                                     <td>{idx + 1}</td>
                                     <td>{item.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>{item.calories}</td>
-                                    <td>{item.purchase_date}</td>
-                                    <td>{item.expiration_date}</td>
-                                    <td>{item.consumption_date}</td>
+                                    <td>{purchase_date}</td>
+                                    <td>{expiration_date}</td>
+                                    <td>{consumption_date}</td>
                                 </tr>
                             )
                         })}
