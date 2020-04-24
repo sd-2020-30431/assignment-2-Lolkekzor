@@ -22,9 +22,9 @@ class App extends React.Component {
                                 key={idx}
                                 path={route.path}
                                 exact={route.exact}
-                                component={() => (
-                                    <route.layout>
-                                        <route.component/>
+                                component={(props) => (
+                                    <route.layout {...props}>
+                                        <route.component {...props}/>
                                     </route.layout>
                                 )}
                             />
