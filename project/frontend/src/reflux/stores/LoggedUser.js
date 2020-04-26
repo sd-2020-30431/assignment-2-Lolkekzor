@@ -15,6 +15,7 @@ class LoggedUserStore extends Reflux.Store {
         }
 
         this.listenTo(LoggedUserActions.login, this.login);
+        this.listenTo(LoggedUserActions.signup, this.signup);
         this.listenTo(LoggedUserActions.tokenAuthenticate, this.tokenAuthenticate);
         this.listenTo(LoggedUserActions.logout, this.logout);
 
@@ -51,6 +52,26 @@ class LoggedUserStore extends Reflux.Store {
         }).then(res => {
             console.log(user.username);
             console.log(res);
+            res = res.data;
+            this.setState({
+                logged: true,
+                username: user.username,
+                token: res.token
+            })
+            localStorage.setItem('token', res.token);
+            GlobalRedirectActions.redirect('/');
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+    
+    signup(user) {
+        axios.post('http://localhost:8000/core/users/', JSON.stringify({
+            username: user.username,
+            password: user.password
+        }), {
+            headers: {"Content-Type": "application/json"}
+        }).then(res => {
             res = res.data;
             this.setState({
                 logged: true,

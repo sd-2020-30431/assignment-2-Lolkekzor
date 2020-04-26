@@ -2,11 +2,11 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Form, Row, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 import './SignupForm.css';
 
-// TEMPORARY
-import axios from 'axios';
+import LoggedUserActions from '../reflux/actions/LoggedUser';
 
 const schema = yup.object({
     username: yup.string().required("Please enter an username").min(3, "Username must be at least 3 characters long"),
@@ -15,10 +15,9 @@ const schema = yup.object({
 });
 
 class SignupForm extends React.Component{
-    testFunction = (formData) => {
-        axios.post()
+    register = (data) => {
+        LoggedUserActions.signup(data)
     }
-
 
     render() {
         return (
@@ -27,7 +26,7 @@ class SignupForm extends React.Component{
                 <hr/>
                 <Formik
                     validationSchema={schema}
-                    onSubmit={this.testFunction}
+                    onSubmit={this.register}
                     initialValues={{
                         username: '',
                         password: '',
